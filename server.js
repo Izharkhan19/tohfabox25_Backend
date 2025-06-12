@@ -14,9 +14,9 @@ const port = process.env.PORT || 3000;
 
 // --- Configure CORS Middleware ---
 // let frontLocal_URL = "http://localhost:5173";
-let frontLive_URL = "https://tohfabox25.vercel.app/";
+// let frontLive_URL = "https://tohfabox25.vercel.app/";
 const corsOptions = {
-  origin: frontLive_URL, // IMPORTANT: Replace with your React app's actual URL
+  origin: port, // IMPORTANT: Replace with your React app's actual URL
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
