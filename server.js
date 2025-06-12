@@ -166,7 +166,7 @@ app.get("/", (req, res) => {
 
 // --- Start the Server ---
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on : ${port}`);
   console.log(
     "Ensure CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET are set in your .env file."
   );
