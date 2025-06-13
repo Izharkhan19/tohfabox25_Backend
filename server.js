@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000;
 
 // --- Configure CORS Middleware ---
 // let URL = "http://localhost:5173";
-let URL = "https://tohfabox25.vercel.app/";
+let URL = "https://tohfabox25.vercel.app";
 const corsOptions = {
   origin: URL, // IMPORTANT: Replace with your React app's actual URL
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
