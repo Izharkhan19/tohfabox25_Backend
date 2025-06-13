@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2; // Use v2 for modern Cloudinary features
@@ -154,6 +153,47 @@ app.get("/media", async (req, res) => {
     console.error("Cloudinary fetch error:", error);
     res.status(500).json({
       message: "Error fetching media from Cloudinary.",
+      error: error.message,
+    });
+  }
+});
+
+// DELETE API to remove a file from Cloudinary
+app.delete("/delete", async (req, res) => {
+  const { publicId, resourceType } = req.body;
+
+  if (!publicId) {
+    return res
+      .status(400)
+      .json({ message: "Missing publicId in request body." });
+  }
+  if (!resourceType) {
+    return res
+      .status(400)
+      .json({ message: "Missing resourceType in request body." });
+  }
+
+  try {
+    // Delete the resource from Cloudinary
+    const result = await cloudinary.uploader.destroy(publicId, {
+      resource_type: resourceType, // 'image' or 'video'
+    });
+
+    if (result.result === "ok") {
+      return res.status(200).json({
+        message: "File deleted successfully from Cloudinary.",
+        publicId,
+      });
+    } else {
+      return res.status(400).json({
+        message: "Failed to delete the file from Cloudinary.",
+        result,
+      });
+    }
+  } catch (error) {
+    console.error("Cloudinary delete error:", error);
+    return res.status(500).json({
+      message: "Error deleting file from Cloudinary.",
       error: error.message,
     });
   }
