@@ -12,6 +12,7 @@
   "author": "Izhar",
   "license": "ISC",
   "dependencies": {
+    "@types/nodemon": "^3.1.1",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
