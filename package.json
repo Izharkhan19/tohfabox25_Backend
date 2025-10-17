@@ -4,15 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
     "dev": "nodemon --watch src --ext ts --exec \"node --loader ts-node/esm src/index.ts\"",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "Izhar",
   "license": "ISC",
   "dependencies": {
-    "@types/nodemon": "^3.1.1",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
