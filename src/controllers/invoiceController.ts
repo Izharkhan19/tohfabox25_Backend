@@ -18,7 +18,6 @@
 //     }
 // };
 
-
 import { Request, Response } from 'express';
 import { stripe } from '../services/stripeService';
 import { generateInvoice } from '../services/invoiceService';
